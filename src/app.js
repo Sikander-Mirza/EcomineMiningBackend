@@ -171,9 +171,9 @@ app.use("/api/v1/",withdrawal)
 const start = () => {
     connect();
     const port = process.env.PORT || 8000;
-  app.listen(port, () => {
-    console.log(`✅ Local server running on http://localhost:${port}`);
-  });
+//   app.listen(port, () => {
+//     console.log(`✅ Local server running on http://localhost:${port}`);
+//   });
 }
 
 export default start;  
