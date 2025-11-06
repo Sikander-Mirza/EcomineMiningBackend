@@ -1,3 +1,7 @@
-import app from "../server.js";
+import express from "express";
+import authRoutes from "./authRoutes.js";
 
-export default app;
+const router = express.Router();
+router.use("/", authRoutes);
+
+export default router;

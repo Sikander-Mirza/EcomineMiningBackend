@@ -127,6 +127,10 @@ const app = express();
 // ✅ Vercel does NOT allow app.listen()
 (async () => {
   await connect();
+  //   const port = process.env.PORT || 8000;
+  // app.listen(port, () => {
+  //   console.log(`✅ Local server running on http://localhost:${port}`);
+  // });
 })();
 
 // ✅ Middlewares
@@ -154,9 +158,11 @@ app.get("/", (req, res) => {
 
 // ✅ Load routes manually instead of fs.readdirSync (fs FAILS on Vercel)
 import authRoutes from "./routes/authRouter.js";
+import withdrawal from "./routes/withdrawalRoutes.js"
 // import walletRoutes from "./routes/";
 
-app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/", authRoutes);
+app.use("/api/v1/",withdrawal)
 // app.use("/api/v1/wallet", walletRoutes);
 
 export default app; // ✅ REQUIRED for Vercel serverless
