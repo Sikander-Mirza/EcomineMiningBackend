@@ -9,8 +9,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // SSL
   auth: {
-    user: process.env.MAIL_USER, // e.g. sikander.mirza@themetroweb.com
-    pass: process.env.MAIL_PASSWORD, // your email password
+    user: process.env.MAIL_USER, 
+    pass: process.env.MAIL_PASSWORD, 
   },
   tls: {
     rejectUnauthorized: false,

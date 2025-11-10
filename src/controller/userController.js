@@ -195,6 +195,9 @@ export const verifyOtp = asyncHandler(async (req, res) => {
       role: user.role,
       phoneNumber: user.phoneNumber,
       mainBalance: user.mainBalance,
+      referralCode: user.referralCode,
+      referralId: user.referralId,
+
     },
     token,
   });

@@ -115,6 +115,29 @@
 //   res.send("Backend running successfully 🚀");
 // });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -125,13 +148,13 @@ import path from "node:path";
 const app = express();
 
 // ✅ Vercel does NOT allow app.listen()
-// (async () => {
-//   await connect();
-//     const port = process.env.PORT || 8000;
-//   app.listen(port, () => {
-//     console.log(`✅ Local server running on http://localhost:${port}`);
-//   });
-// })();
+(async () => {
+  await connect();
+    const port = process.env.PORT || 8000;
+  app.listen(port, () => {
+    console.log(`✅ Local server running on http://localhost:${port}`);
+  });
+})();
 
 // ✅ Middlewares
 app.use(express.json());
@@ -159,10 +182,12 @@ app.get("/", (req, res) => {
 // ✅ Load routes manually instead of fs.readdirSync (fs FAILS on Vercel)
 import authRoutes from "./routes/authRouter.js";
 import withdrawal from "./routes/withdrawalRoutes.js"
+import deposite from "./routes/depositeRoutes.js"
 // import walletRoutes from "./routes/";
 
 app.use("/api/v1/", authRoutes);
 app.use("/api/v1/",withdrawal)
+app.use("/api/v1/",deposite)
 // app.use("/api/v1/wallet", walletRoutes);
 
 
